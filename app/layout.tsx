@@ -5,10 +5,11 @@ import { SiteFooter } from "@/components/nav/site-footer";
 import { CommandPalette } from "@/components/command-palette";
 import { fontVariables } from "@/lib/fonts";
 import { ogImage } from "@/lib/og";
+import { SITE_URL } from "@/lib/site";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bolaji.dev"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Bolaji Adekunle — Frontend / product engineer",
     template: "%s · Bolaji Adekunle",

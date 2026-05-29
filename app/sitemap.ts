@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { writings, works, labs } from "#site/content";
-
-const SITE = "https://bolaji.dev";
+import { SITE_URL as SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

@@ -1,6 +1,6 @@
 import { writings } from "#site/content";
+import { SITE_URL as SITE } from "@/lib/site";
 
-const SITE = "https://bolaji.dev";
 const TITLE = "Bolaji Adekunle";
 const DESC =
   "Notes on craft, the web, and the things I'm learning, from a frontend / product engineer at TD Africa.";

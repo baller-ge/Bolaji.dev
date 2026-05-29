@@ -186,10 +186,20 @@ vercel
 
 The `/og` route is `runtime = "edge"` for low-latency social card generation. `/sitemap.xml`, `/robots.txt`, and `/rss.xml` are auto-generated.
 
+### Environment
+
+The site's canonical URL is resolved in [lib/site.ts](lib/site.ts) in this order:
+
+1. **`NEXT_PUBLIC_SITE_URL`** — set this once a custom domain is in place. Overrides everything below. Example: `https://bolaji.dev`.
+2. **`VERCEL_PROJECT_PRODUCTION_URL`** — auto-injected by Vercel; pins to the project's production hostname (works on previews too).
+3. **Hardcoded fallback** — the current Vercel preview URL, used in local dev.
+
+`metadataBase`, `lib/og.ts`, `/sitemap.xml`, `/robots.txt`, and `/rss.xml` all read from this. Set `NEXT_PUBLIC_SITE_URL` once and the whole site repoints.
+
 ### Things to change before launch
 
-- Swap the placeholder `https://bolaji.dev` constant in [lib/og.ts](lib/og.ts), [app/sitemap.ts](app/sitemap.ts), [app/robots.ts](app/robots.ts), and [app/rss.xml/route.ts](app/rss.xml/route.ts) for the real domain.
 - Fill in the bracketed placeholders in `/about`, `/now`, `/uses`, and the case-study scaffolds.
+- Set `NEXT_PUBLIC_SITE_URL` in Vercel once the custom domain is live.
 - Bundle a Mona Sans OTF into `public/fonts/og/` and pass to `next/og`&rsquo;s `fonts` option (Google Fonts CSS2 returns WOFF2 which Satori cannot decode).
 
 ## Roadmap
