@@ -108,7 +108,7 @@ export function CommandPalette() {
           <Item
             icon={<Mail size={16} />}
             onSelect={() => {
-              window.location.href = "mailto:devteam@tdafrica.com";
+              window.location.href = "mailto:abdulbasithamzat@gmail.com";
               setOpen(false);
             }}
           >

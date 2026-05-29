@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function WorkIndexPage() {
-  const published = works.filter((w) => w.published);
+  const published = works
+    .filter((w) => w.published)
+    .sort((a, b) => b.startYear - a.startYear);
 
   return (
     <div className={styles.page}>

@@ -15,8 +15,8 @@ const channels = [
   },
   {
     label: "GitHub",
-    value: "@tomorrow_TD",
-    href: "https://github.com/tomorrow_TD",
+    value: "@tomorrow-TD",
+    href: "https://github.com/tomorrow-TD",
     note: "Most of what I publish ends up here.",
   },
   {

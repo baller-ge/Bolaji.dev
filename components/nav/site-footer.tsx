@@ -56,7 +56,7 @@ export function SiteFooter() {
           <ul className="flex flex-col gap-1 font-mono text-xs">
             <li>
               <Link
-                href="https://github.com"
+                href="https://github.com/tomorrow-TD"
                 target="_blank"
                 rel="noreferrer"
                 className="text-ink-muted transition-colors duration-(--dur-fast) hover:text-accent"
@@ -66,7 +66,7 @@ export function SiteFooter() {
             </li>
             <li>
               <Link
-                href="mailto:devteam@tdafrica.com"
+                href="mailto:abdulbasithamzat@gmail.com"
                 className="text-ink-muted transition-colors duration-(--dur-fast) hover:text-accent"
               >
                 email ↗

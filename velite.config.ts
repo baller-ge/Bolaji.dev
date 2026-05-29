@@ -33,6 +33,7 @@ const works = defineCollection({
       company: s.string(),
       role: s.string(),
       period: s.string(),
+      startYear: s.number().default(0),
       description: s.string().max(280),
       published: s.boolean().default(true),
       body: s.mdx(),

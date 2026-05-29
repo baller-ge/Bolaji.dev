@@ -1,21 +1,22 @@
 ---
-title: A component system for TD Africa's internal tools
+title: Internal tooling and the design system at TD Africa
 slug: td-africa-component-system
 company: TD Africa
-role: Frontend / product engineer
+role: Frontend / Product engineer
 period: 2024 — present
-description: Building the design system and component library powering TD Africa's internal product surfaces.
+startYear: 2024
+description: Building the design system and the internal product surfaces — order management, logistics, dashboards — that move TD Africa's distribution business.
 ---
 
 <Lead>
-  Designing and building a coherent component system across multiple internal product surfaces — from order management to logistics dashboards.
+  Sole frontend / product engineer across multiple internal surfaces — order management, logistics tracking, partner dashboards, and the design system underneath all of them. The job is half engineering, half product judgment.
 </Lead>
 
-> This is a working draft. Replace each section with the real story when you're ready to publish.
+> This is the working scaffold. Replace each section with the real story when you&rsquo;re ready to publish.
 
 ## The problem
 
-[What was broken when you arrived. The shape of the mess, in concrete terms. Numbers if you have them — page weight, time-to-interactive, duplicate components, hours per feature.]
+[The state of the frontends when I joined — what existed, what didn&rsquo;t. The shape of the mess, in concrete terms. Pages-per-feature, design drift across surfaces, time spent rebuilding the same patterns.]
 
 <StatGrid>
   <Stat value="4" label="separate frontends" hint="all using different patterns" />
@@ -25,14 +26,15 @@ description: Building the design system and component library powering TD Africa
 
 ## What I did
 
-[Your role and the decisions you made. Use specific verbs. Name the trade-offs you faced and which way you ruled.]
+[The decisions I made and the trade-offs behind them. Use specific verbs. Name the calls someone else might have made differently — that&rsquo;s the senior signal.]
 
 <Callout type="info">
-  The senior signal is _decisions_, not _features_. List the calls you made
-  that someone else would have made differently, and say why.
+  Two ways to read &ldquo;design system&rdquo;: a set of opinions backed by
+  components, or a component library someone wrote opinions on top of. The
+  difference matters, and it usually shows up in the third quarter.
 </Callout>
 
-A small example — settling on a single primary button. Three iterations across two months, here's the journey:
+A small slice of the work — settling on a single primary button. Three iterations across two months:
 
 <Demo
   caption="Toggle between the three button generations. Click 'after' to see the shipped version."
@@ -40,11 +42,11 @@ A small example — settling on a single primary button. Three iterations across
   <VariantSwitcher />
 </Demo>
 
-The shipped variant looks unremarkable — that's the point. The path to "unremarkable" was the work.
+The shipped variant looks unremarkable — that&rsquo;s the point. The path to &ldquo;unremarkable&rdquo; was the work.
 
 ## Outcomes
 
-[What changed measurably. Time-to-ship, error rates, designer/engineer happiness. If you can't share numbers, share verbatim quotes from teammates.]
+[What changed measurably. Time-to-ship, error rates, the temperature of designer/engineer Slack threads. Real numbers if you can share them; verbatim quotes if you can&rsquo;t.]
 
 <StatGrid>
   <Stat value="3.2x" label="faster page builds" hint="median across teams" />
@@ -52,6 +54,6 @@ The shipped variant looks unremarkable — that's the point. The path to "unrema
   <Stat value="1" label="agreed source of truth" hint="finally" />
 </StatGrid>
 
-## What I'd do differently
+## What I&rsquo;d do differently
 
-[The senior signal. Show you have a relationship with your own work. Pick one or two things you'd revisit and what you've learned since.]
+[The senior signal. Show you have a relationship with your own work. One or two things you&rsquo;d revisit, and what you&rsquo;ve learned since.]
