@@ -1,0 +1,83 @@
+/* ---------------------------------------------------------------
+   Design tokens — single source of truth for colors, type, motion.
+   Tailwind reads these via the @theme inline block in globals.css.
+   --------------------------------------------------------------- */
+
+:root {
+  /* Surface */
+  --bg: #faf6ec;
+  --bg-elevated: #f2eddd;
+  --ink: #131211;
+  --ink-muted: #5c5751;
+  --ink-subtle: #8a857c;
+  --hairline: #e8e2d0;
+
+  /* Accent — acid green */
+  --accent: #65a30d;
+  --accent-hover: #4d7c0f;
+  --accent-soft: #ecfccb;
+
+  /* Selection */
+  --selection-bg: var(--accent-soft);
+  --selection-fg: var(--ink);
+
+  /* Type scale — modular, ~1.25 ratio */
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.563rem;
+  --step-3: 1.953rem;
+  --step-4: 2.441rem;
+  --step-5: 3.815rem;
+  --step-6: 6.104rem;
+
+  /* Spacing — base 4px */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 480ms;
+
+  /* Layout */
+  --content-width: 68ch;
+  --wide-width: 80rem;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 16px;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e0e0c;
+  --bg-elevated: #16161a;
+  --ink: #f3efe2;
+  --ink-muted: #a8a298;
+  --ink-subtle: #6b6760;
+  --hairline: #2a2823;
+
+  --accent: #a3e635;
+  --accent-hover: #bef264;
+  --accent-soft: #1a2f0a;
+
+  --selection-bg: var(--accent);
+  --selection-fg: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+}

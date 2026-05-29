@@ -1,0 +1,52 @@
+---
+title: Magnetic links
+slug: magnetic-links
+date: 2026-05-28
+description: Buttons that drift toward your cursor when it's nearby. Built on Motion springs and a single global pointermove listener.
+---
+
+<Lead>
+  A small interaction with disproportionate payoff. Buttons that lean toward the cursor feel intentional and physical — the kind of detail you don&rsquo;t notice consciously but remember anyway.
+</Lead>
+
+<Demo caption="Hover near any button. They pull toward your cursor with a spring; release to settle.">
+  <MagneticLinks />
+</Demo>
+
+## The shape of it
+
+Each button owns two motion values, `x` and `y`. A `pointermove` listener computes the Euclidean distance from the cursor to the button&rsquo;s center; if you&rsquo;re inside a radius (here, `140px`), the button translates a fraction of that delta. Outside the radius, it snaps back to `0, 0`.
+
+```ts
+const onMove = (e: PointerEvent) => {
+  const r = el.getBoundingClientRect();
+  const cx = r.left + r.width / 2;
+  const cy = r.top + r.height / 2;
+  const dx = e.clientX - cx;
+  const dy = e.clientY - cy;
+  const dist = Math.hypot(dx, dy);
+  if (dist > RADIUS) { x.set(0); y.set(0); return; }
+  const t = 1 - dist / RADIUS;
+  x.set(dx * STRENGTH * t);
+  y.set(dy * STRENGTH * t);
+};
+```
+
+The spring on top of `x` and `y` does the smoothing. Stiffness `220`, damping `22`, mass `0.5` — that combination snaps without bouncing. Bouncier values land closer to "playful," tighter values land closer to "premium."
+
+## The pitfalls
+
+Two things worth knowing:
+
+1. **The hit-target moves but the layout doesn&rsquo;t.** That&rsquo;s deliberate — the button transforms with `translate`, which doesn&rsquo;t shift its siblings. Layouts stay stable; clicks land where you point.
+2. **Reduced motion bails out entirely.** No spring, no translate. The button is just a button. Anything else is hostile.
+
+<Callout type="info">
+  Magnetic interactions feel best on infrequent, high-intent surfaces — primary
+  CTAs, footer links, navigation labels. On every link in a long list they
+  read as nervous, not crafted.
+</Callout>
+
+## Why not CSS-only
+
+You can fake the pull with `:hover` + a translate; it kind of works. But the cursor has to land on the button before the effect kicks in, which defeats the point — magnetic links should feel like the button reached out, not like you found it.

@@ -1,0 +1,53 @@
+---
+title: A cursor that leaves a trail
+slug: cursor-trail
+date: 2026-05-28
+description: A pointer-following trail built with one rAF loop and a chain of position lerps. No spring math.
+---
+
+<Lead>
+  One of those CSS demos that takes thirty minutes to build and ten seconds to understand. Each dot in the chain lerps toward the dot in front of it — the result is organic damping for free.
+</Lead>
+
+<Demo caption="Move your cursor inside the canvas. The lead dot tracks you; each follower drifts behind.">
+  <CursorTrail />
+</Demo>
+
+## How it works
+
+The whole thing is one `requestAnimationFrame` loop. There are 14 dots; on every frame:
+
+1. The lead dot's position lerps toward the cursor.
+2. Each follower lerps toward the dot in front of it.
+
+That cascade gives you damping without any explicit spring physics. It looks like ink because the trail naturally bunches when the cursor stops and stretches when it accelerates.
+
+```ts
+const LEAD_LERP = 0.45;
+const FOLLOW_LERP = 0.36;
+
+function tick() {
+  positions[0].x += (pointerX - positions[0].x) * LEAD_LERP;
+  positions[0].y += (pointerY - positions[0].y) * LEAD_LERP;
+
+  for (let i = 1; i < TRAIL; i++) {
+    positions[i].x += (positions[i - 1].x - positions[i].x) * FOLLOW_LERP;
+    positions[i].y += (positions[i - 1].y - positions[i].y) * FOLLOW_LERP;
+  }
+  // ...write transforms to the DOM
+}
+```
+
+<Callout type="note">
+  No React state mutates per frame — positions live in a ref array, and the
+  loop writes transforms directly with <code>el.style.transform</code>. That
+  keeps the framework out of the hot path.
+</Callout>
+
+## The blend mode trick
+
+Every dot has `mix-blend-mode: difference`. When the trail loops back over itself, overlapping dots invert into a sharper edge — the trail _crosses_ itself rather than just stacking opacity. It's a free polish detail.
+
+## What I'd change
+
+The lead lerp factor is the dial that controls "snappiness." Drop it to `0.25` and the cursor feels like it's dragging through honey. Push it to `0.7` and the trail tightens into a near-rigid tail. The right value depends on what the trail is doing — for an ink feel, slower is more honest.

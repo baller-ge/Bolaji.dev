@@ -1,0 +1,45 @@
+---
+title: Launching this site
+slug: launching-this-site
+date: 2026-05-28
+description: Some thoughts on building a portfolio that is itself the portfolio piece.
+tags: [meta, craft]
+---
+
+<Lead>
+  This site is the work sample. Every animation, every type choice, every
+  interaction is itself a small argument for how I think about the web.
+</Lead>
+
+The cheapest way to ship a portfolio is to grab a template, paste in three screenshots, and call it done. The most honest way is to treat the site as a craft project of its own.
+
+I picked the harder path for one reason: a portfolio of work and a portfolio of craft are different things, and senior engineers should ship both.
+
+## What "craft" means here
+
+When I say I want every interaction to feel _crafted_, I mean specific things:
+
+- **Springy on enter, easy on exit.** Things arriving use a bezier-spring curve. Things leaving use a smooth ease-out. Linear curves are reserved for opacity only.
+- **No animation longer than 600ms** outside the lab page. Longer is annoying on the second visit.
+- **Reduced-motion is honored everywhere.** Not just `motion: none` — a graceful fade-only fallback for each animation.
+
+<Callout type="note">
+  Lab pieces are allowed to break the 600ms rule. They're meant to be re-watched.
+</Callout>
+
+## The decisions
+
+For the curious, here's the stack as it stands today:
+
+```ts
+const stack = {
+  framework: "Next.js 15 App Router",
+  styles: "Tailwind v4 + CSS Modules for signature work",
+  animation: ["Motion", "GSAP (Phase 4)"],
+  content: "Velite + MDX",
+  fonts: ["Mona Sans", "Geist Mono"],
+  deploy: "Vercel",
+};
+```
+
+More to come as the build progresses. Every phase ships a post about what changed and why.

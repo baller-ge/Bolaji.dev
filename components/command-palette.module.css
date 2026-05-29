@@ -1,0 +1,138 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--ink) 50%, transparent);
+  backdrop-filter: blur(4px);
+  z-index: 60;
+  animation: fadeIn var(--dur-base) var(--ease-out);
+}
+
+.dialog {
+  position: fixed;
+  top: 18vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 36rem);
+  background: var(--bg);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 10px 30px -10px color-mix(in srgb, var(--ink) 30%, transparent),
+    0 0 0 1px var(--hairline) inset;
+  z-index: 61;
+  overflow: hidden;
+  animation: rise var(--dur-base) var(--ease-spring);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  color: var(--ink);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--ink-subtle);
+}
+
+.list {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: var(--space-2);
+  scroll-padding: var(--space-2);
+}
+
+.empty {
+  padding: var(--space-6);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-subtle);
+}
+
+.group {
+  padding-block: var(--space-2);
+}
+
+.group [cmdk-group-heading] {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-subtle);
+  padding: var(--space-2) var(--space-3);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--step-0);
+  color: var(--ink);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.item[data-selected="true"] {
+  background: var(--bg-elevated);
+}
+
+.item[data-selected="true"] .arrow {
+  color: var(--accent);
+  transform: translateX(2px);
+}
+
+.icon {
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.label {
+  flex: 1;
+}
+
+.shortcut {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-subtle);
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+}
+
+.arrow {
+  color: var(--ink-subtle);
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .dialog {
+    animation: none;
+  }
+}

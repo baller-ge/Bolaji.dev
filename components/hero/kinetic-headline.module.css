@@ -1,0 +1,53 @@
+.line {
+  display: block;
+}
+
+.char {
+  display: inline-block;
+  font-variation-settings: "wght" 400, "wdth" 100;
+  transition: font-variation-settings 90ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: font-variation-settings;
+}
+
+/* The accent word ("craft") — color + the drawn-in underline.
+   Inner chars are still individual <span class="char"> so the
+   kinetic effect still applies to each letter of "craft" too. */
+.accentWord {
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.accentWord::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: 0.05em;
+  height: 0.12em;
+  background: linear-gradient(var(--accent) 0 0) no-repeat;
+  background-size: 0% 100%;
+  border-radius: 999px;
+  animation: drawUnderline 600ms var(--ease-out) 900ms forwards;
+}
+
+@keyframes drawUnderline {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char {
+    transition: none;
+    /* leave font-variation-settings at the static baseline */
+  }
+  .accentWord::after {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
