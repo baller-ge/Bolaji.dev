@@ -23,7 +23,10 @@ const HAIRLINE = "#e8e2d0";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const title = (searchParams.get("title") ?? "Bolaji Adekunle").slice(0, 120);
+  const title = (searchParams.get("title") ?? "Abdul-Basit Hamzat").slice(
+    0,
+    120,
+  );
   const kind = (searchParams.get("kind") ?? "").slice(0, 32);
 
   return new ImageResponse(
@@ -53,8 +56,8 @@ export async function GET(request: NextRequest) {
           }}
         >
           <span style={{ display: "flex", alignItems: "center" }}>
-            <span style={{ color: INK, fontWeight: 700 }}>bolaji</span>
-            <span>.dev</span>
+            <span style={{ color: INK, fontWeight: 700 }}>abdul-basit</span>
+            <span>&nbsp;hamzat</span>
           </span>
           {kind && (
             <span
@@ -104,7 +107,7 @@ export async function GET(request: NextRequest) {
           }}
         >
           <span style={{ fontSize: 22, color: INK_MUTED, display: "flex" }}>
-            Bolaji Adekunle
+            Abdul-Basit Hamzat
           </span>
           <span
             style={{
@@ -124,7 +127,7 @@ export async function GET(request: NextRequest) {
                 borderRadius: 999,
               }}
             />
-            Frontend / product engineer
+            DevOps engineer
           </span>
         </div>
       </div>

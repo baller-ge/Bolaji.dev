@@ -2,10 +2,10 @@ import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
-  { href: "/work", label: "Work" },
-  { href: "/writing", label: "Writing" },
-  { href: "/lab", label: "Lab" },
+  { href: "/projects", label: "Projects" },
+  { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function SiteNav() {
@@ -19,8 +19,8 @@ export function SiteNav() {
           href="/"
           className="font-mono text-sm text-ink transition-colors duration-(--dur-fast) hover:text-accent"
         >
-          bolaji
-          <span className="text-ink-subtle">.dev</span>
+          abdul-basit
+          <span className="text-ink-subtle"> hamzat</span>
         </Link>
         <div className="flex items-center gap-1">
           <ul className="hidden items-center gap-1 sm:flex">

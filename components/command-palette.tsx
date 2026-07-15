@@ -6,14 +6,12 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import {
   ArrowRight,
-  Beaker,
   Briefcase,
-  FileText,
   Home,
   Mail,
   Monitor,
   Moon,
-  Palette,
+  ShieldCheck,
   Sun,
   UserCircle2,
 } from "lucide-react";
@@ -59,33 +57,27 @@ export function CommandPalette() {
       />
       <Command.List className={styles.list}>
         <Command.Empty className={styles.empty}>
-          No matches. Try &ldquo;writing&rdquo; or &ldquo;theme&rdquo;.
+          No matches. Try &ldquo;projects&rdquo; or &ldquo;theme&rdquo;.
         </Command.Empty>
 
         <Command.Group heading="Navigate" className={styles.group}>
           <Item icon={<Home size={16} />} onSelect={() => go("/")}>
             Home
           </Item>
-          <Item icon={<Briefcase size={16} />} onSelect={() => go("/work")}>
-            Work
-          </Item>
-          <Item icon={<FileText size={16} />} onSelect={() => go("/writing")}>
-            Writing
-          </Item>
-          <Item icon={<Beaker size={16} />} onSelect={() => go("/lab")}>
-            Lab
+          <Item icon={<Briefcase size={16} />} onSelect={() => go("/projects")}>
+            Projects
           </Item>
           <Item
-            icon={<UserCircle2 size={16} />}
-            onSelect={() => go("/about")}
+            icon={<ShieldCheck size={16} />}
+            onSelect={() => go("/services")}
           >
+            Services
+          </Item>
+          <Item icon={<UserCircle2 size={16} />} onSelect={() => go("/about")}>
             About
           </Item>
-          <Item
-            icon={<Palette size={16} />}
-            onSelect={() => go("/styleguide")}
-          >
-            Styleguide
+          <Item icon={<Mail size={16} />} onSelect={() => go("/contact")}>
+            Contact
           </Item>
         </Command.Group>
 

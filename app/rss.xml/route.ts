@@ -1,9 +1,9 @@
 import { writings } from "#site/content";
 import { SITE_URL as SITE } from "@/lib/site";
 
-const TITLE = "Bolaji Adekunle";
+const TITLE = "Abdul-Basit Hamzat";
 const DESC =
-  "Notes on craft, the web, and the things I'm learning, from a frontend / product engineer at TD Africa.";
+  "Notes on reliability, deployment, and the web, from a DevOps engineer at TD Africa.";
 
 const escape = (s: string) =>
   s

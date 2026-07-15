@@ -11,22 +11,24 @@ import "@/styles/globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Bolaji Adekunle — Frontend / product engineer",
-    template: "%s · Bolaji Adekunle",
+    default: "Abdul-Basit Hamzat — DevOps Engineer",
+    template: "%s · Abdul-Basit Hamzat",
   },
   description:
-    "Bolaji Adekunle is a frontend / product engineer at TD Africa, crafting interfaces that move, respond, and stay out of your way.",
+    "Abdul-Basit Hamzat is a DevOps engineer who builds, secures, deploys, and maintains reliable corporate and professional-services websites.",
   openGraph: {
-    title: "Bolaji Adekunle",
-    description: "Frontend / product engineer at TD Africa.",
+    title: "Abdul-Basit Hamzat",
+    description:
+      "DevOps engineer — reliable, secure, maintained corporate websites.",
     type: "website",
-    images: [ogImage("Bolaji Adekunle — frontend / product engineer")],
+    images: [ogImage("Abdul-Basit Hamzat — DevOps Engineer")],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bolaji Adekunle",
-    description: "Frontend / product engineer at TD Africa.",
-    images: [ogImage("Bolaji Adekunle — frontend / product engineer").url],
+    title: "Abdul-Basit Hamzat",
+    description:
+      "DevOps engineer — reliable, secure, maintained corporate websites.",
+    images: [ogImage("Abdul-Basit Hamzat — DevOps Engineer").url],
   },
 };
 

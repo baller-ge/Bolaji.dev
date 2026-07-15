@@ -5,7 +5,7 @@ import styles from "./work.module.css";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected case studies — Bolaji Adekunle.",
+  description: "Selected case studies — Abdul-Basit Hamzat.",
 };
 
 export default function WorkIndexPage() {

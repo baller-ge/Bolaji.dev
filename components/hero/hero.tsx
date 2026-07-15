@@ -9,27 +9,27 @@ export function Hero() {
         <KineticHeadline
           lines={[
             {
-              text: "Hi, I'm Bolaji Adekunle.",
+              text: "Hi, I'm Abdul-Basit Hamzat.",
               className: styles.greeting,
             },
             {
-              text: "I craft interfaces — the kind that",
-              accent: "craft",
+              text: "I build, secure, and keep",
+              accent: "secure",
               className: styles.line2,
             },
             {
-              text: "move, respond, and stay out of your way.",
+              text: "corporate websites running.",
               className: styles.line3,
             },
           ]}
         />
       </h1>
       <p className={styles.subline}>
-        Frontend / product engineer at{" "}
+        DevOps engineer at{" "}
         <Link href="https://tdafrica.com" target="_blank" rel="noreferrer">
           TD Africa
         </Link>
-        .
+        . I ship reliable, secure websites — and stay on to maintain them.
       </p>
     </section>
   );

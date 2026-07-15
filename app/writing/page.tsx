@@ -4,7 +4,7 @@ import { writings } from "#site/content";
 
 export const metadata: Metadata = {
   title: "Writing",
-  description: "Essays and notes — Bolaji Adekunle.",
+  description: "Essays and notes — Abdul-Basit Hamzat.",
 };
 
 export default function WritingIndexPage() {

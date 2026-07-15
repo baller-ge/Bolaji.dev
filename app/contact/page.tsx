@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "How to reach Bolaji Adekunle.",
+  description: "How to reach Abdul-Basit Hamzat.",
 };
 
 const channels = [
@@ -11,7 +11,13 @@ const channels = [
     label: "Email",
     value: "abdulbasithamzat@gmail.com",
     href: "mailto:abdulbasithamzat@gmail.com",
-    note: "Best for everything.",
+    note: "Best for everything — project scoping, support, anything.",
+  },
+  {
+    label: "Phone",
+    value: "+234 814 451 440",
+    href: "tel:+234814451440",
+    note: "Calls and WhatsApp.",
   },
   {
     label: "GitHub",
@@ -21,9 +27,9 @@ const channels = [
   },
   {
     label: "LinkedIn",
-    value: "Bolaji Adekunle",
+    value: "Abdul-Basit Hamzat",
     href: "https://linkedin.com",
-    note: "Lighter-touch — I check it weekly.",
+    note: "[Add your LinkedIn profile URL here.]",
   },
 ];
 

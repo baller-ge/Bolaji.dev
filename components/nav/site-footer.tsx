@@ -5,9 +5,9 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-hairline">
       <div className="mx-auto grid max-w-(--wide-width) gap-8 px-6 py-12 sm:grid-cols-[1fr_auto_auto] sm:items-start">
         <p className="font-mono text-xs leading-relaxed text-ink-subtle">
-          &copy; {new Date().getFullYear()} Bolaji Adekunle.
+          &copy; {new Date().getFullYear()} Abdul-Basit Hamzat.
           <br />
-          Crafted with care, in Lagos.
+          Built, secured &amp; maintained — from Lagos.
         </p>
         <nav aria-labelledby="footer-sitelet" className="flex flex-col gap-1">
           <h3

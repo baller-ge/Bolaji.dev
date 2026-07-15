@@ -41,6 +41,25 @@ const works = defineCollection({
     .transform((data) => computedFields(data, "work")),
 });
 
+const projects = defineCollection({
+  name: "Project",
+  pattern: "projects/*.mdx",
+  schema: s.object({
+    title: s.string().max(120),
+    slug: s.slug("projects"),
+    url: s.string().url(),
+    client: s.string(),
+    sector: s.string(),
+    role: s.string(),
+    year: s.number(),
+    description: s.string().max(280),
+    cover: s.image(),
+    featured: s.boolean().default(false),
+    order: s.number().default(99),
+    published: s.boolean().default(true),
+  }),
+});
+
 const labs = defineCollection({
   name: "Lab",
   pattern: "lab/**/*.mdx",
@@ -65,7 +84,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { writings, works, labs },
+  collections: { writings, works, projects, labs },
   mdx: {
     rehypePlugins: [
       rehypeSlug,
