@@ -2,6 +2,13 @@
   display: block;
 }
 
+/* Keep whole words intact — the per-char inline-block spans would otherwise
+   let the browser break a line mid-word on narrow screens. */
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .char {
   display: inline-block;
   font-variation-settings: "wght" 400, "wdth" 100;

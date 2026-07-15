@@ -112,6 +112,25 @@ export function KineticHeadline({ lines }: Props) {
     </span>
   );
 
+  /**
+   * Render a text chunk grouped into per-word spans. Each character is still an
+   * individual inline-block <span> (so the kinetic effect applies), but wrapping
+   * words in a `nowrap` span keeps line breaks at real spaces only — otherwise
+   * adjacent inline-block chars let the browser break mid-word on narrow screens.
+   */
+  const renderChunk = (text: string, keyPrefix: string) =>
+    text.split(/(\s+)/).map((part, pi) => {
+      if (!part) return null;
+      if (/^\s+$/.test(part)) return part; // plain whitespace = break opportunity
+      return (
+        <span key={`${keyPrefix}-${pi}`} className={styles.word}>
+          {Array.from(part).map((ch, i) =>
+            renderChar(ch, `${keyPrefix}-${pi}-${i}`),
+          )}
+        </span>
+      );
+    });
+
   return (
     <>
       {lines.map((line, li) => {
@@ -137,7 +156,7 @@ export function KineticHeadline({ lines }: Props) {
             className={`${styles.line} ${line.className ?? ""}`}
             aria-label={line.text}
           >
-            {Array.from(before).map((ch, i) => renderChar(ch, `${li}-b-${i}`))}
+            {renderChunk(before, `${li}-b`)}
             {accentText && (
               <span className={styles.accentWord}>
                 {Array.from(accentText).map((ch, i) =>
@@ -145,7 +164,7 @@ export function KineticHeadline({ lines }: Props) {
                 )}
               </span>
             )}
-            {Array.from(after).map((ch, i) => renderChar(ch, `${li}-af-${i}`))}
+            {renderChunk(after, `${li}-af`)}
           </span>
         );
       })}
